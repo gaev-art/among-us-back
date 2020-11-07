@@ -1,9 +1,9 @@
 import {Express, NextFunction, Request, Response} from 'express'
 import bodyParser from 'body-parser'
-import {cookie} from './cookie'
+import {cookie} from "./cookie";
 
 export const appUse = (app: Express) => {
-    // cookie(app)
+    cookie(app)
 
     // parse application/json
     app.use(bodyParser.json({limit: '7mb'}))

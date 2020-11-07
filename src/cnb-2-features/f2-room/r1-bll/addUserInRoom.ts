@@ -6,7 +6,7 @@ export const addUserInRoom = (socketServer: Server, user: any) => (arg: any, ans
     if (typeof arg !== 'string') answerF && answerF('Message not string!')
     else {
         const done = addUser({...user, name: arg})
-
+        answerF && answerF('done!')
     }
 
     // socketServer.emit('new-message-sent', arg)
