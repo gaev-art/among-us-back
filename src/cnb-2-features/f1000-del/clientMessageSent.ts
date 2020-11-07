@@ -1,13 +1,13 @@
 import {v1} from "uuid";
 import {Server, Socket} from "socket.io";
-// import {Message, UserInMessage} from "../f1-socket";
+import {Message, UserInMessage} from "../f1-socket";
 
 export const clientMessageSent = (
     socketServer: Server,
     socket: Socket,
-    // users: Array<UserInMessage & { socket?: Socket }>,
-    // user: UserInMessage & { socket?: Socket },
-    // messages: Message[]
+    users: Array<UserInMessage & { socket?: Socket }>,
+    user: UserInMessage & { socket?: Socket },
+    messages: Message[]
 ) => (arg: any, answerF: Function) => {
     console.log("message: " + arg);
     if (typeof arg !== "string") answerF && answerF("Message not string!");
@@ -15,12 +15,12 @@ export const clientMessageSent = (
     else {
         answerF && answerF("ok");
 
-        // if (!users.find(u => u.socket === socket)) {
-        //     users.push(user);
-        // }
-        //
-        // const newM: Message = {message: arg, _id: v1(), user: {_id: user._id, name: user.name}};
-        // messages.push(newM);
-        // socketServer.emit("new-message-sent", newM);
+        if (!users.find(u => u.socket === socket)) {
+            users.push(user);
+        }
+
+        const newM: Message = {message: arg, _id: v1(), user};
+        messages.push(newM);
+        socketServer.emit("new-message-sent", newM);
     }
 };
