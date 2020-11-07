@@ -1,11 +1,18 @@
 // state
+import {UserInMessage} from '../../f1-socket'
+
 const _roomState = {
-    users: [] as any[],
+  users: [] as UserInMessage[],
 
 }
 
 // methods
-export const addUser = (user: any) => {
+export const addUser = (user: UserInMessage) => {
+  const result = _roomState.users.find(u => u.name === user.name)
+  if (!result) {
     _roomState.users.push(user)
+    return user
+  }
+
 
 }
