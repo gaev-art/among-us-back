@@ -19,7 +19,7 @@ export const clientMessageSent = (
             users.push(user);
         }
 
-        const newM: Message = {message: arg, _id: v1(), user: {_id: user._id, name: user.name}};
+        const newM: Message = {message: arg, _id: v1(), user};
         messages.push(newM);
         socketServer.emit("new-message-sent", newM);
     }
