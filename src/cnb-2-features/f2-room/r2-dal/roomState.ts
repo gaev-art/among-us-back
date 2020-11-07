@@ -1,3 +1,5 @@
+
+
 // state
 const _roomState = {
     users: [] as any[],
@@ -6,6 +8,7 @@ const _roomState = {
 
 // methods
 export const addUser = (user: any) => {
+    //
     _roomState.users.push(user)
 
 }
