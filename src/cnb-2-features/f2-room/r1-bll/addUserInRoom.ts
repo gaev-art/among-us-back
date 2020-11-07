@@ -1,6 +1,5 @@
 import {addUser} from '../r2-dal/roomState'
 import {Server} from 'socket.io'
-import {UserInMessage} from '../../f1-socket'
 
 // endPoint logic
 export const addUserInRoom = (socketServer: Server, user: any) => (arg: any, answerF: Function) => {
