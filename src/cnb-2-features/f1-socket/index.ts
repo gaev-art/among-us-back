@@ -13,11 +13,11 @@ export type UserInMessage = {
   x: number
   y: number
 }
-export type Message = {
-    _id: string,
-    message: string,
-    user: UserInMessage,
-}
+// export type Message = {
+//     _id: string,
+//     message: string,
+//     user: UserInMessage,
+// }
 
 // const messages: Message[] = [{message: "start", _id: v1(), user: {_id: v1(), name: "neko-admin"}}]
 // const users: Array<UserInMessage & {socket?: Socket}> = [{_id: v1(), name: "test", socket: undefined}]
